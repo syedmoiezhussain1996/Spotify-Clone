@@ -10,7 +10,11 @@ if (!$authenticated) {
 }
 
 include("../utils/dbConnection.php");
-$sql = "SELECT * FROM songs";
+$sql = "SELECT songs.id, songs.title, songs.imgPath, songs.filePath, songs.dateAdded, songs.fileType, language.title as languageTitle, genre.title as genreTitle, album.title as albumTitle, singers.name as singerTitle, songs.year FROM songs
+inner join singers on songs.singerID=singers.id  
+inner join language on songs.languageID=language.id
+inner join genre on songs.genereID=genre.id
+inner join album on songs.albumID=album.id WHERE songs.fileType='audio';";
 $result = mysqli_query($conn, $sql);
 $songs = mysqli_fetch_all($result, MYSQLI_ASSOC);
 ?>
@@ -35,14 +39,19 @@ $songs = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
         <table align="center" border="1" style="border-color: #fff;" class="displaySong">
             <tr>
-                <th colspan="6">SONGS INFO</th>
+                <th colspan="12">SONGS INFO</th>
             </tr>
             <tr>
                 <th>No</th>
                 <th>Images</th>
                 <th>Name</th>
+                <th>Singer</th>
+                <th>Album</th>
+                <th>Genre</th>
+                <th>Language</th>
                 <th>File Path</th>
                 <th>File Type</th>
+                <th>Year</th>
                 <th colspan="3">Operations</th>
             </tr>
 
@@ -51,8 +60,13 @@ $songs = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     <td><?php echo $index + 1; ?></td>
                     <td><img style="width: 50px; height: 50px;" src="<?php echo '../' . $song['imgPath'] ?>"></td>
                     <td><?php echo $song['title']; ?></td>
+                    <td><?php echo $song['singerTitle']; ?></td>
+                    <td><?php echo $song['albumTitle']; ?></td>
+                    <td><?php echo $song['genreTitle']; ?></td>
+                    <td><?php echo $song['languageTitle']; ?></td>
                     <td><?php echo $song['filePath']; ?></td>
-                    <td><?php echo $song['file type']; ?></td>
+                    <td><?php echo $song['fileType']; ?></td>
+                    <td><?php echo $song['year']; ?></td>
                     <td><a style="padding: 5px; background-color: #66FF33; color: #fff; border-radius: 15px; text-decoration: none;" href="insertSong.php?id=<?php echo $song['id'] ?>">Update</a></td>
                     <td><a style="padding: 5px; background-color: #E3242B; color: #fff; border-radius: 15px; text-decoration: none;" href="deleteSong.php?id=<?php echo $song['id'] ?>">Delete</a></td>
                 </tr>
@@ -75,16 +89,21 @@ $songs = mysqli_fetch_all($result, MYSQLI_ASSOC);
 <script type="text/javascript">
     function pagination(value) {
         let header = `<tr>
-            <th colspan="6">SONGS INFO</th>
-        </tr>
-        <tr>
-            <th>No</th>
-            <th>Images</th>
-            <th>Name</th>
-            <th>File Path</th>
-            <th>File Type</th>
-            <th colspan="3">Operations</th>
-        </tr>`
+                <th colspan="12">SONGS INFO</th>
+            </tr>
+            <tr>
+                <th>No</th>
+                <th>Images</th>
+                <th>Name</th>
+                <th>Singer</th>
+                <th>Album</th>
+                <th>Genre</th>
+                <th>Language</th>
+                <th>File Path</th>
+                <th>File Type</th>
+                <th>Year</th>
+                <th colspan="3">Operations</th>
+            </tr>`
         let displaySong = document.getElementsByClassName("displaySong")[0];
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
@@ -100,8 +119,13 @@ $songs = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     <td> ${index + 1}</td>
                     <td><img style="width: 50px; height: 50px;" src='../${value['imgPath']}'></td>
                     <td>${value['title']}</td>
+                    <td>${value['singerTitle']}</td>
+                    <td>${value['albumTitle']}</td>
+                    <td>${value['genreTitle']}</td>
+                    <td>${value['languageTitle']}</td>
                     <td>${value['filePath']}</td>
-                    <td>${value['file type']}</td>
+                    <td>${value['fileType']}</td>
+                    <td>${value['year']}</td>
                     <td><a style="padding: 5px; background-color: #66FF33; color: #fff; border-radius: 15px; text-decoration: none;" href="insertSong.php?id=${value['id']}">Update</a></td>
                     <td><a style="padding: 5px; background-color: #E3242B; color: #fff; border-radius: 15px; text-decoration: none;" href="deleteSong.php?id=${value['id']}">Delete</a></td>
                     </tr>`

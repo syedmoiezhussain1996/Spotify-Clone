@@ -1,7 +1,11 @@
 <?php
 
 include("../utils/dbConnection.php");
-$sql = "SELECT * FROM songs";
+$sql = "SELECT songs.id, songs.title, songs.imgPath, songs.filePath, songs.dateAdded, songs.fileType, language.title as languageTitle, genre.title as genreTitle, album.title as albumTitle, singers.name as singerTitle, songs.year FROM songs
+inner join singers on songs.singerID=singers.id  
+inner join language on songs.languageID=language.id
+inner join genre on songs.genereID=genre.id
+inner join album on songs.albumID=album.id WHERE songs.fileType='audio';";
 $result = mysqli_query($conn, $sql);
 $songs = mysqli_fetch_all($result, MYSQLI_ASSOC);
     
