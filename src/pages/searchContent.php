@@ -13,7 +13,7 @@ if (isset($_GET['search'])) {
 }
 
 ?>
-<?php include('./components/navbar.php'); ?>
+<!-- <?php include('./components/navbar.php'); ?> -->
 <section>
     <h3 class="sectionTitle">Songs</h3>
     <div class="songsContain">

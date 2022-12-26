@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jan 25, 2022 at 09:31 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.0.15
+-- Host: db
+-- Generation Time: Dec 25, 2022 at 07:59 PM
+-- Server version: 8.0.31
+-- PHP Version: 8.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,8 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `myspotify`
 --
-CREATE DATABASE IF NOT EXISTS `myspotify` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `myspotify`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `album`
+--
+
+CREATE TABLE `album` (
+  `id` int NOT NULL,
+  `title` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `album`
+--
+
+INSERT INTO `album` (`id`, `title`) VALUES
+(1, 'Album 1'),
+(2, 'Album 2'),
+(3, 'Album 3'),
+(4, 'Album 4'),
+(5, 'Album 5');
 
 -- --------------------------------------------------------
 
@@ -30,9 +50,9 @@ USE `myspotify`;
 --
 
 CREATE TABLE `favourites` (
-  `uid` int(11) NOT NULL,
-  `songID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
+  `uid` int NOT NULL,
+  `songID` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_vietnamese_ci;
 
 --
 -- Dumping data for table `favourites`
@@ -40,7 +60,19 @@ CREATE TABLE `favourites` (
 
 INSERT INTO `favourites` (`uid`, `songID`) VALUES
 (9, 14),
-(9, 15);
+(9, 15),
+(10, 16);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `genre`
+--
+
+CREATE TABLE `genre` (
+  `id` int NOT NULL,
+  `title` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -49,9 +81,9 @@ INSERT INTO `favourites` (`uid`, `songID`) VALUES
 --
 
 CREATE TABLE `groups` (
-  `id` int(11) NOT NULL,
-  `groupName` varchar(50) COLLATE utf8_vietnamese_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
+  `id` int NOT NULL,
+  `groupName` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_vietnamese_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_vietnamese_ci;
 
 --
 -- Dumping data for table `groups`
@@ -64,15 +96,26 @@ INSERT INTO `groups` (`id`, `groupName`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `language`
+--
+
+CREATE TABLE `language` (
+  `id` int NOT NULL,
+  `title` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `singers`
 --
 
 CREATE TABLE `singers` (
-  `id` int(11) NOT NULL,
-  `name` varchar(50) COLLATE utf8_vietnamese_ci NOT NULL,
-  `info` varchar(255) COLLATE utf8_vietnamese_ci NOT NULL,
-  `image` varchar(50) COLLATE utf8_vietnamese_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
+  `id` int NOT NULL,
+  `name` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_vietnamese_ci NOT NULL,
+  `info` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_vietnamese_ci NOT NULL,
+  `image` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_vietnamese_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_vietnamese_ci;
 
 --
 -- Dumping data for table `singers`
@@ -94,22 +137,27 @@ INSERT INTO `singers` (`id`, `name`, `info`, `image`) VALUES
 --
 
 CREATE TABLE `songs` (
-  `id` int(11) NOT NULL,
-  `title` varchar(50) COLLATE utf8_vietnamese_ci NOT NULL,
-  `filePath` varchar(50) COLLATE utf8_vietnamese_ci NOT NULL,
-  `imgPath` varchar(50) COLLATE utf8_vietnamese_ci NOT NULL,
-  `dateAdded` timestamp NOT NULL DEFAULT current_timestamp(),
-  `singerID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
+  `id` int NOT NULL,
+  `title` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_vietnamese_ci NOT NULL,
+  `filePath` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_vietnamese_ci NOT NULL,
+  `imgPath` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_vietnamese_ci NOT NULL,
+  `dateAdded` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `singerID` int NOT NULL,
+  `file type` varchar(50) COLLATE utf8mb3_vietnamese_ci NOT NULL,
+  `languageID` int DEFAULT NULL,
+  `genereID` int DEFAULT NULL,
+  `albumID` int NOT NULL,
+  `year` varchar(4) COLLATE utf8mb3_vietnamese_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_vietnamese_ci;
 
 --
 -- Dumping data for table `songs`
 --
 
-INSERT INTO `songs` (`id`, `title`, `filePath`, `imgPath`, `dateAdded`, `singerID`) VALUES
-(14, 'Pixabay', 'music/pixabay.mp3', 'images/piano.jpg', '2021-06-03 10:38:34', 9),
-(15, 'Midnight', 'music/midnight.mp3', 'images/Midnight_Mist.jpg', '2021-06-03 10:38:58', 9),
-(16, 'Electronica', 'music/electronica.mp3', 'images/lofi.jpg', '2021-06-03 10:39:21', 9);
+INSERT INTO `songs` (`id`, `title`, `filePath`, `imgPath`, `dateAdded`, `singerID`, `file type`, `languageID`, `genereID`, `albumID`, `year`) VALUES
+(14, 'Pixabay', 'music/pixabay.mp3', 'images/piano.jpg', '2021-06-03 10:38:34', 8, 'audio', NULL, NULL, 0, ''),
+(15, 'Midnight', 'music/midnight.mp3', 'images/Midnight_Mist.jpg', '2021-06-03 10:38:58', 9, 'audio', NULL, NULL, 0, ''),
+(16, 'Electronica', 'music/electronica.mp3', 'images/lofi.jpg', '2021-06-03 10:39:21', 9, 'audio', NULL, NULL, 0, '');
 
 -- --------------------------------------------------------
 
@@ -118,23 +166,31 @@ INSERT INTO `songs` (`id`, `title`, `filePath`, `imgPath`, `dateAdded`, `singerI
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
-  `username` varchar(50) COLLATE utf8_vietnamese_ci NOT NULL,
-  `password` varchar(50) COLLATE utf8_vietnamese_ci NOT NULL,
-  `groupID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
+  `id` int NOT NULL,
+  `username` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_vietnamese_ci NOT NULL,
+  `password` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_vietnamese_ci NOT NULL,
+  `groupID` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_vietnamese_ci;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `groupID`) VALUES
-(5, 'pum', '58af57d4977baf21166dbfb12b606789', 2),
-(9, 'baobao', 'b6c6cfe1a7ba5eac0f984f3ef97c8490', 1);
+(5, 'pum', '21232f297a57a5a743894a0e4a801fc3', 2),
+(9, 'baobao', '21232f297a57a5a743894a0e4a801fc3', 1),
+(10, 'admin', '21232f297a57a5a743894a0e4a801fc3', 2),
+(11, 'bmblb', 'ff9e6cad0fcb37d9aacbb82840e40896', 1);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `album`
+--
+ALTER TABLE `album`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `favourites`
@@ -144,9 +200,21 @@ ALTER TABLE `favourites`
   ADD KEY `favourites_ibfk_2` (`songID`);
 
 --
+-- Indexes for table `genre`
+--
+ALTER TABLE `genre`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `groups`
 --
 ALTER TABLE `groups`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `language`
+--
+ALTER TABLE `language`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -174,28 +242,46 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `album`
+--
+ALTER TABLE `album`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `genre`
+--
+ALTER TABLE `genre`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `groups`
 --
 ALTER TABLE `groups`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `language`
+--
+ALTER TABLE `language`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `singers`
 --
 ALTER TABLE `singers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `songs`
 --
 ALTER TABLE `songs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables

@@ -13,7 +13,7 @@ $queryResult = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 $favSongs = array_map("reformData", $queryResult);
 ?>
-<?php include('./components/navbar.php'); ?>
+<!-- <?php include('./components/navbar.php'); ?> -->
 <div class="fav">
     <h1>Favourites Songs</h1>
     <button>Play all</button>

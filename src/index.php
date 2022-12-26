@@ -68,7 +68,10 @@ foreach ($songs as $song) {
             <!-- End sidebar -->
 
             <!-- Music UI -->
-            <div class="musicContainer" id="home">
+         <div style="width: 80%;">
+         <?php include('./components/navbar.php'); ?>
+       
+            <div class="musicContainer" id="home">           
                 <?php include("./pages/homeContent.php"); ?>
             </div>
             <div class="musicContainer hide" id="favourites">
@@ -81,6 +84,7 @@ foreach ($songs as $song) {
             </div>
             <div class="musicContainer hide" id="singer">
                 <?php include("./pages/singerContent.php"); ?>
+            </div>
             </div>
             <!-- End Music UI -->
         </div>

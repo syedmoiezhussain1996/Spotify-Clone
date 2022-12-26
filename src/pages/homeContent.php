@@ -1,4 +1,4 @@
-<?php include('./components/navbar.php'); ?>
+<!-- <?php include('./components/navbar.php'); ?> -->
 <section>
     <h1 class="sectionTitle">Recommend Songs</h1>
     <div class="cards">

@@ -10,6 +10,10 @@
                 <i class="fas fa-house-user"></i>
                 <h3>Home</h3>
             </button>
+            <button class="buttonContainer active" page-data="home">
+                <i class="fas fa-house-user"></i>
+                <h3>Home</h3>
+            </button>
             <button class="buttonContainer" page-data="search">
                 <i class="fas fa-search"></i>
                 <h3>Search</h3>
