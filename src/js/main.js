@@ -109,6 +109,9 @@ function goToSingerPage() {
 
 // Load song
 function loadSong(song) {
+    // console.log(song);
+    
+     ratingPopup();
     audio.src = song["audio"];
     coverImg.src = song["img"];
     title.innerText = song["title"];
@@ -117,6 +120,7 @@ function loadSong(song) {
 
 // Play song
 function playSong() {
+    
     if (audio.src.includes("#")) return;
 
     playBtn.querySelector("i.fas").classList.remove("fa-play");

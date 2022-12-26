@@ -9,6 +9,9 @@ function redirect($url)
     echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $url . '">';
 }
 
+//  if (!$authenticated) {
+//     redirect("auth/login.php");
+//  }
 $getAllSongsQuery = "SELECT songs.id, songs.title title,
                             songs.filePath audio, songs.imgPath img,
                             singers.name singerName, singers.id singerID
@@ -27,6 +30,7 @@ $formatSongs = array();
 foreach ($songs as $song) {
     $formatSongs[$song["id"]] = $song;
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,6 +65,37 @@ foreach ($songs as $song) {
             <div class="close">+</div>
         </div>
     </div>
+
+    <div class="login-modal rating-modal">
+   
+        <div class="login-modal__logo">
+            <!-- <i class="fab fa-spotify"></i> -->
+            <h1>3.2/5</h1>
+            <!-- <p>rating based on 12 users feedback</p> -->
+        </div>
+        <div class="login-modal__info">
+        <!-- <h6 style="color:#ffc700;">RATE THIS</h6> -->
+        <h5>Song : Pixaby Lorem porem ispum</h5>
+           
+           
+            <!-- <h7>Singer : Unknown</h7> -->
+        <div class="rate">
+    <input type="radio" id="star5" name="rate" value="5" />
+    <label for="star5" title="text">5 stars</label>
+    <input type="radio" id="star4" name="rate" value="4" />
+    <label for="star4" title="text">4 stars</label>
+    <input type="radio" id="star3" name="rate" value="3" />
+    <label for="star3" title="text">3 stars</label>
+    <input type="radio" id="star2" name="rate" value="2" />
+    <label for="star2" title="text">2 stars</label>
+    <input type="radio" id="star1" name="rate" value="1" />
+    <label for="star1" title="text">1 star</label>
+  </div>
+ <button style="width: 60%; background-color:#ffc700;"><h4>RATE</h4></button>
+  <div class="close">+</div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="content">
             <!-- Sidebar -->
@@ -85,6 +120,9 @@ foreach ($songs as $song) {
             <div class="musicContainer hide" id="singer">
                 <?php include("./pages/singerContent.php"); ?>
             </div>
+            <div class="musicContainer hide" id="video">
+                <?php include("./pages/videoContent.php"); ?>
+            </div>
             </div>
             <!-- End Music UI -->
         </div>
@@ -102,6 +140,7 @@ foreach ($songs as $song) {
 <script src="./js/songTile.js"></script>
 <script src="./js/playingQueue.js"></script>
 <script src="./js/loginRequired.js"></script>
+<script src="./js/rateSong.js"></script>
 <script src="./js/main.js"></script>
 <?php if ($authenticated) : ?>
     <script src="./js/favourite.js"></script>
