@@ -30,6 +30,7 @@ body {
     display: flex;
     width: 100%;
     flex-direction: column;
+    position: relative;
 }
 
 .container.blur {
@@ -173,7 +174,8 @@ body {
     /* background: #4d5d6e; */
     display: flex;
     justify-content: space-between;
-    position: relative;
+    position: sticky;
+    bottom: 0.125rem;
 }
 
 .musicPlayerContainer * {
@@ -208,7 +210,7 @@ body {
 
 .musicDetail h4,
 .musicDetail h5 {
-    margin-top: 8px;
+    margin-top: 6px;
 }
 
 .musicDetail h5 {
@@ -408,8 +410,8 @@ li.playing .stroke:nth-child(3) {
 /* Musics container */
 .musicContainer {
     flex: 9;
-    height: 100%;
-    background-image: linear-gradient(180deg, rgb(48, 47, 47), rgb(12, 12, 12));
+    height: 72vh;
+    background-image:linear-gradient(1deg, rgb(41 44 46), rgb(38 49 63));
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
@@ -436,7 +438,8 @@ nav {
     margin-bottom: 0;
     padding: 2rem 2rem;
     height: 10vh;
-    background-color: black;
+    /* background-color: black; */
+    background-image: linear-gradient(180deg, rgb(48, 47, 47), rgb(24 31 36));
     display: flex;
     align-items: center;
     width: 100%;
@@ -444,7 +447,7 @@ nav {
 }
 
 .logo-container {
-    margin-top:15px;
+    /*  margin-top:15px; */
     width: 3rem;
     height: 3rem;
     margin-left: auto;

@@ -2,7 +2,7 @@
     <div class="musicInfo">
         <img id="imgCover" src="./images/logo.jpg" alt="">
         <div class="musicDetail">
-            <h4 id="title"></h4>
+            <h4 style="margin-top:35px;" id="title"></h4>
             <h5 id="singerName"></h5>
         </div>
         <!-- <i class="far fa-heart"></i> -->
