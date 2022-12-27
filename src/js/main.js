@@ -111,7 +111,7 @@ function goToSingerPage() {
 function loadSong(song) {
     // console.log(song);
     
-     ratingPopup();
+     //ratingPopup();
     audio.src = song["audio"];
     coverImg.src = song["img"];
     title.innerText = song["title"];

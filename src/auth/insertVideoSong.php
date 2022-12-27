@@ -48,7 +48,7 @@ function saveFile($fileInfo)
 {
     $filename = $fileInfo['name'];
     $type = $fileInfo['type'];
-    $folder = (strpos($type, "image") !== false) ? 'images/' : 'music/';
+    $folder = (strpos($type, "image") !== false) ? 'images/' : 'video/';
 
     $tmpPath = $fileInfo['tmp_name'];
     $destinationPath = $folder . $filename;
@@ -143,7 +143,7 @@ if (isset($_POST['submit'])) {
     <div>
 
     </div>
-    <h3 class="notice">UPLOAD SONGS</h3>
+    <h3 class="notice">UPLOAD Video SONGS</h3>
     <form class="form-insert" method="POST" enctype="multipart/form-data">
         <?php foreach ($errors as $error) : ?>
             <p class="error"><?php echo $error; ?></p>
@@ -240,10 +240,10 @@ if (isset($_POST['submit'])) {
 
         <div class="row">
             <div class="col-md-3">
-            <label class="form-label">MP3 File</label>
+            <label class="form-label">MP4 File</label>
             </div>
             <div class="col-md-9">
-            <input class="form-control" type="file" name="mp3" accept="audio/*">
+            <input class="form-control" type="file" name="mp3" accept="video/*">
                     </div>           
            
         </div>

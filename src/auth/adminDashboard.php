@@ -42,7 +42,7 @@ if (!$authenticated) {
         </div>
         <div class="icon-dashboard">
             <label>VIDEO SONGS</label>
-            <a href="editSong.php"><i class="fas fa-film fa-7x"></i></a>
+            <a href="editVideoSong.php"><i class="fas fa-film fa-7x"></i></a>
         </div>
 
     </div>

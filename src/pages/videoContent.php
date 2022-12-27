@@ -1,5 +1,5 @@
 <style>
-    .musicContainer{
+    /* .musicContainer{
         height: 90vh !important;
     }
     .content {
@@ -7,7 +7,7 @@
     }
     .musicPlayerContainer {
         display: none !important;
-    }
+    } */
 </style>
 <section>
     
