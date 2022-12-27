@@ -64,6 +64,7 @@ const makeSongTitle = (index, song) => {
     const playButton = titleContainer.querySelector("h4");
     const favIcon = titleContainer.querySelector("i.fa-heart");
     const queueIcon = titleContainer.querySelector("i.fa-list-ul");
+    
 
     playButton.addEventListener("click", () => {
         playImmediate(song);
@@ -80,6 +81,9 @@ const makeSongTitle = (index, song) => {
     queueIcon.addEventListener("click", () => {
         insertToQueue(song);
     });
+
+    
+
 
     return titleContainer;
 };
