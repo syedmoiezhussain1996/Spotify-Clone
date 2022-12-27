@@ -1,5 +1,6 @@
 body {
-    background-image: url(../spotify-theme.png);
+    /* background-image: url(../spotify-theme.png); */
+    background: black;
     display: flex;
     justify-content: center;
     align-items: center;

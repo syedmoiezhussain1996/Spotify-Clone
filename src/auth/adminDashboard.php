@@ -44,7 +44,18 @@ if (!$authenticated) {
             <label>VIDEO SONGS</label>
             <a href="editVideoSong.php"><i class="fas fa-film fa-7x"></i></a>
         </div>
-
+        <div class="icon-dashboard">
+            <label>LANGUAGE</label>
+            <a href="editLanguage.php"><i class="fas fa-language fa-7x"></i></a>
+        </div>
+        <div class="icon-dashboard">
+            <label>GENRE</label>
+            <a href="editGenre.php"><i class="fas fa-tags fa-7x"></i></a>
+        </div>
+        <div class="icon-dashboard">
+            <label>ALBUM</label>
+            <a href="editAlbum.php"><i class="fas fa-compact-disc fa-7x"></i></a>
+        </div>
     </div>
 
 
