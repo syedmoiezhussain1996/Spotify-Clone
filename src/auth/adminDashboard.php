@@ -28,25 +28,25 @@ if (!$authenticated) {
         <div class="icon-dashboard">
             <label>USERS</label>
             <a href="updateUser.php">
-                <i class="fas fa-users fa-7x"></i></a>
+                <i class="fas fa-users fa-4x"></i></a>
         </div>
 
         <div class="icon-dashboard">
             <label>AUDIO SONGS</label>
-            <a href="editSong.php"><i class="fas fa-music fa-7x"></i></a>
+            <a href="editSong.php"><i class="fas fa-music fa-4x"></i></a>
         </div>
 
         <div class="icon-dashboard">
             <label>SINGERS</label>
-            <a href="editSinger.php"><i class="fas fa-microphone fa-7x"></i></a>
+            <a href="editSinger.php"><i class="fas fa-microphone fa-4x"></i></a>
         </div>
         <div class="icon-dashboard">
             <label>VIDEO SONGS</label>
-            <a href="editVideo.php"><i class="fas fa-film fa-7x"></i></a>
+            <a href="editVideo.php"><i class="fas fa-film fa-4x"></i></a>
         </div>
         <div class="icon-dashboard">
             <label>ALBUM</label>
-            <a href="editAlbum.php"><i class="fas fa-tape fa-7x"></i></a>
+            <a href="editAlbum.php"><i class="fas fa-tape fa-4x"></i></a>
         </div>
         <div class="icon-dashboard">
             <label>GENRE</label>
@@ -54,7 +54,7 @@ if (!$authenticated) {
         </div>
         <div class="icon-dashboard">
             <label>LANGUAGE</label>
-            <a href="editLanguage.php"><i class="fa fa-language fa-7x"></i></a>
+            <a href="editLanguage.php"><i class="fa fa-language fa-4x"></i></a>
         </div>
 
     </div>
