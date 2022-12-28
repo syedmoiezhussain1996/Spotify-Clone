@@ -67,8 +67,8 @@ $songs = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     <td><?php echo $song['filePath']; ?></td>
                     <td><?php echo $song['fileType']; ?></td>
                     <td><?php echo $song['year']; ?></td>
-                    <td><a style="padding: 5px; background-color: #66FF33; color: #fff; border-radius: 15px; text-decoration: none;" href="insertSong.php?id=<?php echo $song['id'] ?>">Update</a></td>
-                    <td><a style="padding: 5px; background-color: #E3242B; color: #fff; border-radius: 15px; text-decoration: none;" href="deleteSong.php?id=<?php echo $song['id'] ?>">Delete</a></td>
+                    <td><a style="padding: 5px; background-color: #66FF33; color: #fff; border-radius: 15px; text-decoration: none;" href="insertVideo.php?id=<?php echo $song['id'] ?>">Update</a></td>
+                    <td><a style="padding: 5px; background-color: #E3242B; color: #fff; border-radius: 15px; text-decoration: none;" href="deleteVideo.php?id=<?php echo $song['id'] ?>">Delete</a></td>
                 </tr>
 
             <?php endforeach; ?>
@@ -126,8 +126,8 @@ $songs = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     <td>${value['filePath']}</td>
                     <td>${value['fileType']}</td>
                     <td>${value['year']}</td>
-                    <td><a style="padding: 5px; background-color: #66FF33; color: #fff; border-radius: 15px; text-decoration: none;" href="insertSong.php?id=${value['id']}">Update</a></td>
-                    <td><a style="padding: 5px; background-color: #E3242B; color: #fff; border-radius: 15px; text-decoration: none;" href="deleteSong.php?id=${value['id']}">Delete</a></td>
+                    <td><a style="padding: 5px; background-color: #66FF33; color: #fff; border-radius: 15px; text-decoration: none;" href="insertVideo.php?id=${value['id']}">Update</a></td>
+                    <td><a style="padding: 5px; background-color: #E3242B; color: #fff; border-radius: 15px; text-decoration: none;" href="deleteVideo.php?id=${value['id']}">Delete</a></td>
                     </tr>`
                 })
                 displaySong.innerHTML += html;

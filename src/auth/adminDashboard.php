@@ -42,7 +42,19 @@ if (!$authenticated) {
         </div>
         <div class="icon-dashboard">
             <label>VIDEO SONGS</label>
-            <a href="editSong.php"><i class="fas fa-film fa-7x"></i></a>
+            <a href="editVideo.php"><i class="fas fa-film fa-7x"></i></a>
+        </div>
+        <div class="icon-dashboard">
+            <label>ALBUM</label>
+            <a href="editAlbum.php"><i class="fas fa-tape fa-7x"></i></a>
+        </div>
+        <div class="icon-dashboard">
+            <label>GENRE</label>
+            <a href="editGenre.php"><i class="fa-solid fa-photo-film"></i></a>
+        </div>
+        <div class="icon-dashboard">
+            <label>LANGUAGE</label>
+            <a href="editLanguage.php"><i class="fa fa-language fa-7x"></i></a>
         </div>
 
     </div>

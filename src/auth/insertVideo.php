@@ -258,7 +258,7 @@ if (isset($_POST['submit'])) {
             
         </div>
         <div class="mb-3">
-            <a href="editSong.php" class="ca">BACK</a>
+            <a href="editVideo.php" class="ca">BACK</a>
             <button type="submit" name="submit">SUBMIT</button>
         </div>
     </form>
