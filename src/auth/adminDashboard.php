@@ -42,21 +42,20 @@ if (!$authenticated) {
         </div>
         <div class="icon-dashboard">
             <label>VIDEO SONGS</label>
-            <a href="editVideo.php"><i class="fas fa-film fa-4x"></i></a>
-        </div>
-        <div class="icon-dashboard">
-            <label>ALBUM</label>
-            <a href="editAlbum.php"><i class="fas fa-tape fa-4x"></i></a>
-        </div>
-        <div class="icon-dashboard">
-            <label>GENRE</label>
-            <a href="editGenre.php"><i class="fa-solid fa-photo-film"></i></a>
+            <a href="editVideoSong.php"><i class="fas fa-film fa-7x"></i></a>
         </div>
         <div class="icon-dashboard">
             <label>LANGUAGE</label>
-            <a href="editLanguage.php"><i class="fa fa-language fa-4x"></i></a>
+            <a href="editLanguage.php"><i class="fas fa-language fa-7x"></i></a>
         </div>
-
+        <div class="icon-dashboard">
+            <label>GENRE</label>
+            <a href="editGenre.php"><i class="fas fa-tags fa-7x"></i></a>
+        </div>
+        <div class="icon-dashboard">
+            <label>ALBUM</label>
+            <a href="editAlbum.php"><i class="fas fa-compact-disc fa-7x"></i></a>
+        </div>
     </div>
 
 

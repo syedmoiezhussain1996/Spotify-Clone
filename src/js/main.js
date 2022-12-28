@@ -109,7 +109,7 @@ function goToSingerPage() {
 
 // Load song
 function loadSong(song) {
-    // console.log(song);
+     console.log(song);
     
      ratingPopup();
     audio.src = song["audio"];

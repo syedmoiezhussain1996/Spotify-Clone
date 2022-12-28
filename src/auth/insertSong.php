@@ -52,7 +52,7 @@ function saveFile($fileInfo)
 
     $tmpPath = $fileInfo['tmp_name'];
     $destinationPath = $folder . $filename;
-
+    print($destinationPath);
     if (move_uploaded_file($tmpPath, '../' . $destinationPath)) {
         echo "Successfully uploaded";
     } else {
