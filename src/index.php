@@ -14,7 +14,7 @@ function redirect($url)
 //  }
 $getAllSongsQuery = "SELECT songs.id, songs.title title,
                             songs.filePath audio, songs.imgPath img,
-                            singers.name singerName, singers.id singerID
+                            singers.name singerName, singers.id singerID , songs.fileType 
                     FROM songs 
                     LEFT JOIN singers on singers.id = songs.singerID
                     ORDER BY songs.dateAdded DESC";

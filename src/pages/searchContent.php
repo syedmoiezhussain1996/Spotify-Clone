@@ -1,22 +1,13 @@
 <?php
 if (isset($_GET['search'])) {
-    $filterTexts = $_GET['search'];
-    // Get songs from database
-    $songsFilterQuery = "SELECT songs.id, songs.title title, singers.name singerName, 
-                        songs.filePath audio, songs.imgPath img, singers.id singerID, songs.fileType
-                        FROM songs 
-                        inner JOIN singers on singers.id = songs.singerID
-                        WHERE title LIKE '%$filterTexts%' OR singers.name LIKE '%$filterTexts%'";
-
-    $result = mysqli_query($conn, $songsFilterQuery);
-    $songs = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    
     
 }
 
 ?>
 <!-- <?php include('./components/navbar.php'); ?> -->
 <script>
-  console.log(<?php echo ($songsFilterQuery); ?>);
+  console.log(<?php echo json_encode($songs); ?>);
 </script>
 <section>
     <h3 class="sectionTitle">Songs</h3>
@@ -55,9 +46,9 @@ if (isset($_GET['search'])) {
     </div>
 </section>
 <script>
-    // const videoIcon  = document.querySelector("i.fa-film");    
-    // videoIcon.addEventListener("click", () => {        
-    //     const songId=videoIcon.getAttribute('data-songId');       
-    //     window.location.assign("VideoSong.php?id="+songId+"");      
-    // });
+    const videoIcon  = document.querySelector("i.fa-film");    
+    videoIcon.addEventListener("click", () => {        
+        const songId=videoIcon.getAttribute('data-songId');       
+        window.location.assign("VideoSong.php?id="+songId+"");      
+    });
 </script>
